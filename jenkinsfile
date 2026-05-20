@@ -32,6 +32,8 @@ pipeline {
                     else
                         echo "File not found"
                     fi
+
+                    npm test
                 '''
             }
         }
