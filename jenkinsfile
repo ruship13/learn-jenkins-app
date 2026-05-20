@@ -23,7 +23,16 @@ pipeline {
 
         stage('Test'){
                 steps{ 
+                    '''
                     sh 'echo Test stage'
+
+                    if [ -f index.html ]; then
+                     echo "File exists"
+                    else
+                     echo "File not found"
+                    
+                    '''
+
                     }
         }
     }
