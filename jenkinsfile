@@ -26,14 +26,13 @@ pipeline {
             steps {
                 sh '''
                     echo "Test stage"
-
+                    npm test
                     if [ -f index.html ]; then
                         echo "File exists"
                     else
                         echo "File not found"
                     fi
-
-                    npm test
+                    
                 '''
             }
         }
