@@ -23,15 +23,18 @@ pipeline {
         }
 
         stage('Test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
             steps {
+                
                 sh '''
                     echo "Test stage"
+                    test -f build/index.html
                     npm test
-                    if [ -f index.html ]; then
-                        echo "File exists"
-                    else
-                        echo "File not found"
-                    fi
                     
                 '''
             }
