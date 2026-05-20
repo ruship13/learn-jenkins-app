@@ -9,6 +9,7 @@ pipeline {
                     reuseNode true
                 }
             }
+
             steps {
                 sh '''
                     ls -la
@@ -21,19 +22,18 @@ pipeline {
             }
         }
 
-        stage('Test'){
-                steps{ 
-                    '''
-                     echo "Test stage"
+        stage('Test') {
+            steps {
+                sh '''
+                    echo "Test stage"
 
                     if [ -f index.html ]; then
-                     echo "File exists"
+                        echo "File exists"
                     else
-                     echo "File not found"
+                        echo "File not found"
                     
-                    '''
-
-                    }
+                '''
+            }
         }
     }
 }
